@@ -1,34 +1,64 @@
 /**
  * Created by admin on 2017/4/7.
  */
-var moveZeroes = function(nums) {
-    var flagZero = -1,
-        flagNoZero = -1;
-    for (var i = 0, len = nums.length; i < len; ++i){
-        // 找到第一个为0的值
-        if (nums[i] !==0 && flagNoZero === -1) {
-            console.log("isn't 0: " + i);
 
-            flagNoZero = i;
-        }
-        if (nums[i] === 0 && flagZero === -1){
-            console.log("is 0: " + i);
-            flagZero = i;
+// 有bug，Time Limit Exceeded
+// var moveZeroes = function(nums) {
+//     var flagNoZero = -1,
+//         flagZero = -1;
+//
+//     for (var i = 0, len = nums.length; i < len; ++i){
+//         // 找到第一个不为0的值
+//         if (nums[i] !== 0 && flagNoZero === -1) {
+//             flagNoZero = i;
+//         }
+//
+//         // 找到第一个为0的值
+//         if (nums[i] === 0 && flagZero === -1){
+//             flagZero = i;
+//         }
+//
+//         // 将第一个非0值与第一个0值交换
+//         console.log(flagNoZero,flagZero);
+//         if (flagNoZero !== -1 && flagZero !== -1){
+//             if (flagZero < flagNoZero) {
+//                 var tmp = nums[flagNoZero];
+//                 nums[flagNoZero] = nums[flagZero];
+//                 nums[flagZero] = tmp;
+//
+//                 i = flagZero;
+//                 // 重置为0的坐标防止遗漏0
+//                 flagZero = -1;
+//             }
+//             // 重置不为0的数以便下次交换
+//             flagNoZero = -1;
+//
+//         }
+//     }
+//
+//     return nums;
+// };
+
+var moveZeroes = function(arr) {
+    var i = 0,
+        zeroIndex = 0,
+        len = arr.length;
+    for (; i < len; i++) {
+        // 元素不等于0，则与第一个0进行交换
+        if (arr[i] !== 0){
+            // 如果起始值不是0 ，则元素会与自身交换
+            var tmp = arr[zeroIndex];
+            arr[zeroIndex] = arr[i];
+            arr[i] = tmp;
+            zeroIndex++;
         }
 
-        // 将第一个非0值与第一个0值交换
-        if (flagNoZero !== -1 && flagZero !== -1){
-            console.log(flagNoZero,flagZero)
-            var tmp = nums[flagNoZero];
-            nums[flagNoZero] = nums[flagZero];
-            nums[flagZero] = tmp;
-            flagZero = flagNoZero = -1;
-        }
     }
-
-    return nums;
+    return arr;
 };
 
-
 var test = [0, 1, 0, 3, 12];
+// var test = [1, 0];
+// var test = [1, 0, 1];
+
 console.log(moveZeroes(test));

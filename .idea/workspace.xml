@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c2e018b-cfc7-4d24-988c-deb0baf99f4f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/258. Add Digits.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/283. Move Zeroes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/492. Construct the Rectangle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/167. Two Sum II - Input array is sorted.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/453. Minimum Moves to Equal Array Elements.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/455. Assign Cookies.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/506. Relative Ranks.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/283. Move Zeroes.js" afterPath="$PROJECT_DIR$/src/283. Move Zeroes.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,11 +28,9 @@
       <file leaf-file-name="492. Construct the Rectangle.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/492. Construct the Rectangle.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="17" column="27" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="17" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#40#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="432">
+              <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -38,8 +38,28 @@
       <file leaf-file-name="258. Add Digits.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/258. Add Digits.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+            <state relative-caret-position="566">
+              <caret line="16" column="2" lean-forward="false" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="283. Move Zeroes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/283. Move Zeroes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="710">
+              <caret line="56" column="15" lean-forward="true" selection-start-line="42" selection-start-column="3" selection-end-line="56" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="455. Assign Cookies.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/455. Assign Cookies.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="13" selection-end-column="17" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
               </folding>
@@ -47,14 +67,48 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="283. Move Zeroes.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/283. Move Zeroes.js">
+      <file leaf-file-name="453. Minimum Moves to Equal Array Elements.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/453. Minimum Moves to Equal Array Elements.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+            <state relative-caret-position="648">
+              <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="506. Relative Ranks.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/506. Relative Ranks.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="684">
+              <caret line="21" column="15" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="21" selection-end-column="15" />
+              <folding>
+                <marker date="1491655997209" expanded="false" signature="0:40" ph="/** Created by admin on 2017/4/8. ...*/" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="167. Two Sum II - Input array is sorted.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/167. Two Sum II - Input array is sorted.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#40#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="500. Keyboard Row.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/500. Keyboard Row.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -81,12 +135,22 @@
         <option value="$PROJECT_DIR$/src/389. Find the Difference.js" />
         <option value="$PROJECT_DIR$/src/492. Construct the Rectangle.js" />
         <option value="$PROJECT_DIR$/src/258. Add Digits.js" />
+        <option value="$PROJECT_DIR$/src/506. Relative Ranks.js" />
+        <option value="$PROJECT_DIR$/src/167. Two Sum II - Input array is sorted.js" />
         <option value="$PROJECT_DIR$/src/283. Move Zeroes.js" />
+        <option value="$PROJECT_DIR$/src/455. Assign Cookies.js" />
+        <option value="$PROJECT_DIR$/src/453. Minimum Moves to Equal Array Elements.js" />
       </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>true</other-services-enabled>
+  </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
@@ -111,8 +175,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -144,9 +208,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="JavaScriptPreferStrict" value="false" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -240,12 +306,13 @@
       <updated>1491407762266</updated>
       <workItem from="1491407764618" duration="482000" />
       <workItem from="1491489613793" duration="3911000" />
-      <workItem from="1491578060604" duration="2360000" />
+      <workItem from="1491578060604" duration="3756000" />
+      <workItem from="1491655965835" duration="5706000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6753000" />
+    <option name="totallyTimeSpent" value="13855000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -257,13 +324,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1924" height="1047" extended-state="0" />
+    <frame x="-8" y="0" width="1924" height="1047" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18345705" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -275,6 +341,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -289,6 +356,30 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/492. Construct the Rectangle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="17" column="27" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="17" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/258. Add Digits.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/283. Move Zeroes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1152">
+          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/389. Find the Difference.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -301,7 +392,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -317,9 +407,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="26" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -350,24 +438,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/500. Keyboard Row.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/492. Construct the Rectangle.js">
+    <entry file="file://$PROJECT_DIR$/src/506. Relative Ranks.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="17" column="27" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="17" selection-end-column="27" />
+        <state relative-caret-position="684">
+          <caret line="21" column="15" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="21" selection-end-column="15" />
+          <folding>
+            <marker date="1491655997209" expanded="false" signature="0:40" ph="/** Created by admin on 2017/4/8. ...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/167. Two Sum II - Input array is sorted.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/258. Add Digits.js">
+    <entry file="file://$PROJECT_DIR$/src/455. Assign Cookies.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+        <state relative-caret-position="72">
+          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="13" selection-end-column="17" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
           </folding>
@@ -376,8 +481,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/283. Move Zeroes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        <state relative-caret-position="710">
+          <caret line="56" column="15" lean-forward="true" selection-start-line="42" selection-start-column="3" selection-end-line="56" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/258. Add Digits.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="566">
+          <caret line="16" column="2" lean-forward="false" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/492. Construct the Rectangle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/453. Minimum Moves to Equal Array Elements.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
           </folding>
