@@ -1,17 +1,14 @@
 /**
- * Created by admin on 2017/5/20.
+ * Created by admin on 2017/6/11.
  */
-// 检测一个字符串是否可以由其子字符串重复数次组成
+// 给定一个非空字符串，检测是否可由其子字符串复制几次获得
+// 思路：用正则真的不算作弊嘛
 var repeatedSubstringPattern = function(s) {
-    var re = /^([a-z]+)?$/g;
+    var re = /^(\w+?)\1+$/;
 
-    var res = null;
-    while(res = re.exec(s)){
-        console.log(res);
-    }
-
-    return re.test(s);
+    return re.exec(s) && re.exec(s)[1] !== s || false;
 };
 
-var test = "ababa";
+var test = "abcabcabcabc";
+
 console.log(repeatedSubstringPattern(test));
