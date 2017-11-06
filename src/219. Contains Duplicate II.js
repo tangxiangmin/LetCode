@@ -9,7 +9,6 @@ var containsNearbyDuplicate = function(nums, k) {
         if (i > k){
             map[nums[i-k-1]] = undefined;
         }
-        console.log(map);
         if (typeof map[nums[i]] != 'undefined'){
             return true
         }else {
