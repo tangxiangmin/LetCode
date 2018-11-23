@@ -12,8 +12,3 @@ var peakIndexInMountainArray = function (A) {
         }
     }
 };
-
-var input = [0, 1, 0]
-var output = peakIndexInMountainArray(input)
-
-console.log(output)
