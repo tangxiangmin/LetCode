@@ -93,20 +93,6 @@ var arr = [
   "ewqz",
   "y"
 ];
-// var arr = [
-//   "m",
-//   "mo",
-//   "moc",
-//   "moch",
-//   "mocha",
-//   "l",
-//   "la",
-//   "lat",
-//   "latt",
-//   "latte",
-//   "c",
-//   "ca",
-//   "cat"
-// ];
+
 var res = longestWord(arr);
 console.log(res);
