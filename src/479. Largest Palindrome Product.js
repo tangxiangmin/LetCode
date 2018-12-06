@@ -28,15 +28,15 @@ var largestPalindrome = function(n) {
         if(isPalindrome(product)){
             break
         }
-        if (j < end) {
+
+        if(i == j){
             i--;
-            j = i;
-        } else {
-            j--;
+        }else {
+            j--
         }
     }
 
     return product % 1337;
 };
 
-var res = largestPalindrome(1);
+var res = largestPalindrome(2);

@@ -4,36 +4,34 @@
  */
 var largestTimeFromDigits = function (A) {
 
-    let group = []
-
     let len = A.length
-    for (let i = 0; i < len - 1; ++i){
-        for(let j = i+1; j < len; ++j){
+    let res = -1
+    for(let i = 0; i < len; ++i){
+        for(let j = 0; j< len; ++j){
+            if(j !== i) {
+                for(let k = 0; k < len; ++k){
+                    if(i != k && j != k){
+                        let l = 6 - i - j - k
 
-            group.push(A[i]*10 + A[j])
-            group.push(A[i]+A[j]*10)
+                        let hour = 10 * A[i] + A[j]
+                        let minunte = 10 * A[k] + A[l]
+                        if(hour < 24 && minunte < 60){
+                            res = Math.max(hour * 60 + minunte, ans)
+                        }
+                    }
+                }
+            }
         }
     }
-    let hour = -1,
-        minutes = -1
-
-    hourIndex = -1 
-    for(let i = 0; i < group.length; ++i){
-        let item = group[i]
-        if (item < 24 && hour < item){
-            hourIndex = i
-            hour = item
-        }
-
-        if (item < 60 && hourIndex !== i && minutes < item){
-            minutes = item;
-        }
+    function padZero(n) {
+        return n.toString().padStart(2, 0);
     }
-    if (hour > -1 && minutes > -1){
-        return hour.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0')
-    }else {
-        return ""
+    if(res > -1){
+        let hour = Math.floor(res / 60)
+        let min = res % 60
+        return `${padZero(hour)}:${padZero(min)}`;
     }
+    return ''
 };
 
 largestTimeFromDigits([1, 2, 3, 4])
