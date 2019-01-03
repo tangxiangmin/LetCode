@@ -25,7 +25,7 @@ MapSum.prototype.sum = function (prefix) {
             res += this.data[key]
         }
     }
-    return res;
+    return res
 };
 
 /**
