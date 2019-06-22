@@ -56,9 +56,6 @@ var deserialize = function(data) {
     var lastNodes = [root];
     while (data.length) {
         var len = Math.min(Math.pow(2, lv), data.length);
-        console.log(lastNodes.map(node=>{
-            return node ? node.val : null
-        }))
         for (var i = 0; i < len; ++i) {
             var val = data.shift();
             var parent = lastNodes[0];
@@ -99,10 +96,15 @@ function TreeNode(val) {
 //   2   3
 //      / \
 //     4   5
-var arr = [1, 2, 3, null, null, 4, 5];
-// arr = [1,2]
-arr = [5, 2, 3, null, null, 2, 4, 3, 1];
-var root = deserialize(arr);
-var ans = serialize(root);
+// var arr = [1, 2, 3, null, null, 4, 5];
+// // arr = [1,2]
+// arr = [5, 2, 3, null, null, 2, 4, 3, 1];
+// var root = deserialize(arr);
+// var ans = serialize(root);
+//
+// console.log(ans);
 
-console.log(ans);
+module.exports = {
+    deserialize,
+    serialize
+}
