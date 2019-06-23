@@ -28,11 +28,3 @@ var sortedArrayToBST = function(nums) {
     root.right = sortedArrayToBST(r);
     return root;
 };
-var arr = [-10, -3, 0, 5, 9];
-
-var res = sortedArrayToBST(arr);
-console.log(res);
-
-0
--3 9
--10 null 5 nunll
