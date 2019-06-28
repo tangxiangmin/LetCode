@@ -53,6 +53,7 @@ var addTwoNumbers = function(l1, l2) {
             } else {
                 next = new ListNode(1);
                 cur.val = cur.val - 9;
+                cur.next = next
             }
         }
         cur = cur.next;

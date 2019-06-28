@@ -40,3 +40,20 @@ var inorderTraversal = function(root) {
     }
     return ans;
 };
+
+var inorderTraversal2 = function(root){
+    if(!root){
+        return null
+    }
+    var ans
+    function inorder(root){
+        if(!root){
+            return
+        }
+        inorder(root.left)
+        ans.push(root.val)
+        inorder(root,right)
+    }
+    inorder(root)
+    return ans
+}
