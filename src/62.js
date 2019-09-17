@@ -2,6 +2,7 @@
  * @param {number} m
  * @param {number} n
  * @return {number}
+ * 动态规划
  */
 var uniquePaths = function(m, n) {
     let map = new Map();
@@ -14,16 +15,24 @@ var uniquePaths = function(m, n) {
             return 1;
         }
         let key = m + "," + n;
+        
         if (map.has(key)) {
             return map.get(key);
         }
-        let res = uniquePaths(m - 1, n) + uniquePaths(m, n - 1);
-        console.log(res);
+
+        let res = step(m - 1, n) + step(m, n - 1);
+
         map.set(key, res);
 
         return res;
     }
+
     return step(m, n);
 };
 
-console.log(uniquePaths(23, 12));
+var m = 3, n = 2
+m = 23, n = 12
+
+var res = uniquePaths(m, n)
+
+console.log(res)
