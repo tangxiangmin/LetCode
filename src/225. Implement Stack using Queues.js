@@ -16,7 +16,7 @@ var MyStack = function() {
  * @return {void}
  */
 MyStack.prototype.push = function(x) {
-    this.data.push(x);
+    this.data[this.data.length] = x
 };
 
 /**
@@ -24,7 +24,7 @@ MyStack.prototype.push = function(x) {
  * @return {number}
  */
 MyStack.prototype.pop = function() {
-    return this.data.pop(x);
+    return this.data.pop();
 };
 
 /**
@@ -40,7 +40,7 @@ MyStack.prototype.top = function() {
  * @return {boolean}
  */
 MyStack.prototype.empty = function() {
-    return this.data.length > 0;
+    return this.data.length === 0;
 };
 
 /**
