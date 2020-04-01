@@ -13,7 +13,6 @@ var majorityElement = function(nums) {
         var val = nums[i];
         tmp[val]? tmp[val]++:tmp[val]=1;
     }
-    console.log(tmp);
     for (var key in tmp){
         var val = tmp[key];
         if (max < val){

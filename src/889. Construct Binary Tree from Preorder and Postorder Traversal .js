@@ -10,6 +10,9 @@
  * @param {number[]} post
  * @return {TreeNode}
  */
+// 前序: 根 -> 左子树 -> 右子树
+// 后续: 左子树 -> 右子树 -> 根
+
 var constructFromPrePost = function (pre, post) {
     let cursor = 0
     let head = new TreeNode(pre[cursor])
@@ -26,8 +29,8 @@ var constructFromPrePost = function (pre, post) {
         let right = new TreeNode(pre[cursor]);
         root.right = right
 
-        dfs(node.left);
-        dfs(node.right);
+        dfs(root.left);
+        dfs(root.right);
     }
 
     dfs(head)
