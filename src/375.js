@@ -27,8 +27,7 @@ var getMoneyAmount = function (n) {
                 dp[i][j] = 0
             } else {
                 dp[i][j] = Infinity
-                console.log(dp)
-                console.log(i, j)
+            
                 for (var x = i; x <= j; ++x) {
                     var max = Math.max(dp[i][x - 1] || 0, dp[x + 1][j] || 0) + x
                     dp[i][j] = Math.min(dp[i][j], max);
@@ -36,7 +35,6 @@ var getMoneyAmount = function (n) {
             }
         }
     }
-    console.log(dp)
     return dp[1][n]
 };
 

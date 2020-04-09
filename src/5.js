@@ -1,84 +1,66 @@
 /**
  * @param {string} s
  * @return {string}
- * 思路：动态规划 P(i,j)=(P(i+1,j−1) and Si == Sj)
- * js部分用例会超时
  */
 
+// 思路: BF
 var longestPalindrome = function (s) {
-    var memo = {}
-    var len = s.length
-    // 找到所有长度为1和2的回文字符串
+    var len = s.length;
+    var max = 0;
+    var ans = "";
     for (var i = 0; i < len; ++i) {
-        memo[s[i]] = true
-        if (s[i + 1] && s[i] === s[i + 1]) {
-            var sub = s[i] + s[i + 1]
-            memo[sub] = true
-        }
-    }
-
-    // 找到所有长度大于2的回文字符串
-    for (var c = 3; c <= len; ++c) {
-        for (var i = 0; c - 1 + i < len; ++i) {
-            var mid = s.substr(i + 1, c - 2) // 如果mid为回文，则sub只需要满足首尾字符相同，则也为回文字符串
-            var start = s[i]
-            var last = s[c + i - 1]
-            if (start === last && memo[mid]) {
-                var sub = start + mid + last
-                memo[sub] = true
+        for (var j = i + 1; j <= len; ++j) {
+            var tmp = s.slice(i, j);
+            if (isPalindrome(tmp) && tmp.length > max) {
+                ans = tmp;
+                max = tmp.length;
             }
         }
     }
-    var ans = ''
-    Object.keys(memo).forEach(item => {
-        if (ans.length < item.length) {
-            ans = item
-        }
-    })
+    return ans;
 
-    return ans
+    function isPalindrome(str) {
+        var len = str.length;
+        for (var i = 0; i < len / 2; ++i) {
+            if (str[i] !== str[len - i - 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+// 思路： BF算法计算了大量的重复子字符串，可以优化
+// P(i, j)定义当S[i,j]为回文串时为true
+// 则：P(i,j)=(P(i+1,j−1) and Si == Sj)
+var longestPalindrome = function (s) {
+    var n = s.length;
+
+    var dp = new Array(n);
+    for (var i = 0; i < n; ++i) {
+        dp[i] = [];
+    }
+
+    var res = "";
+    for (var i = n - 1; i >= 0; i--) {
+        for (var j = i; j < n; j++) {
+            // j-i<2表示为0或1个字符串，
+            dp[i][j] = s[i] == s[j] && (j - i < 2 || dp[i + 1][j - 1]);
+            if (dp[i][j] && j - i + 1 > res.length) {
+                res = s.substring(i, j + 1);
+            }
+        }
+    }
+    return res;
 };
 
-// 中心扩展算反
-var longestPalindrome = function (s) {
-    if (s.length <= 1) {
-        return s
-    }
-
-    var start = 0, end = 0
-    for (var i = 0; i < s.length; ++i) {
-        var len1 = expandAroundCenter(s, i, i)
-        var len2 = expandAroundCenter(s, i, i + 1)
-        var len = Math.max(len1, len2)
-        if (len > end - start) {
-            start = i - Math.floor((len - 1) / 2)
-            end = i + Math.floor(len / 2)
-        }
-    }
-    
-    return s.substr(start, end + 1);
-
-    // 回文字符串从中心开始扩散
-    function expandAroundCenter(s, left, right) {
-        let l = left,
-            r = right
-        while (l >= 0 && r < s.length && s[l] === s[r]) {
-            l--
-            r++
-        }
-        return r - l - 1;
-    }
-}
-
-var s = 'babad'
+var s = "babad";
+s = "a";
 // s = "abcba"
 // s = "ccc"
 // s = "aba"
 // s = "jrjnbctoqgzimtoklkxcknwmhiztomaofwwzjnhrijwkgmwwuazcowskjhitejnvtblqyepxispasrgvgzqlvrmvhxusiqqzzibcyhpnruhrgbzsmlsuacwptmzxuewnjzmwxbdzqyvsjzxiecsnkdibudtvthzlizralpaowsbakzconeuwwpsqynaxqmgngzpovauxsqgypinywwtmekzhhlzaeatbzryreuttgwfqmmpeywtvpssznkwhzuqewuqtfuflttjcxrhwexvtxjihunpywerkktbvlsyomkxuwrqqmbmzjbfytdddnkasmdyukawrzrnhdmaefzltddipcrhuchvdcoegamlfifzistnplqabtazunlelslicrkuuhosoyduhootlwsbtxautewkvnvlbtixkmxhngidxecehslqjpcdrtlqswmyghmwlttjecvbueswsixoxmymcepbmuwtzanmvujmalyghzkvtoxynyusbpzpolaplsgrunpfgdbbtvtkahqmmlbxzcfznvhxsiytlsxmmtqiudyjlnbkzvtbqdsknsrknsykqzucevgmmcoanilsyyklpbxqosoquolvytefhvozwtwcrmbnyijbammlzrgalrymyfpysbqpjwzirsfknnyseiujadovngogvptphuyzkrwgjqwdhtvgxnmxuheofplizpxijfytfabx"
 
-
 // s = "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
 
-var res = longestPalindrome(s)
-console.log(res)
-
+var res = longestPalindrome(s);
+console.log(res);
