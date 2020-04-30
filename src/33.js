@@ -10,7 +10,6 @@ var search = function (nums, target) {
     var len = nums.length
     // 首先找到分界点
     var point = findPoint()
-    console.log('point', point)
     // 根据分界点确定二分查找的边界
     if (!point) {
         var l = 0;
