@@ -17,8 +17,8 @@ var singleNumber = function(nums) {
     // 利用交换律可以将数组假想成相同元素全部相邻，将所有元素依次做异或操作
     // 相同元素异或为0，最后剩余的元素即为单一数字
     var elem = 0;
-    for (var i = 0, len = arr.length; i < len; i++) {
-        elem = elem ^ arr[i];
+    for (var i = 0, len = nums.length; i < len; i++) {
+        elem = elem ^ nums[i];
     }
     return elem;
 };
