@@ -41,7 +41,6 @@ function solution(str){
         }
         cur--
     }
-    console.log(arr) // 增加数组的位置
     return arr.join('')
 }
 
