@@ -23,6 +23,10 @@ var bulbSwitch = function(n) {
     }
     return arr.filter(i=>i).length
 };
+
+var bulbSwitch = function(n) {
+    return Math.floor(Math.sqrt(n + 0.5))
+};
 // 思路2
 // [1,1,1,1,1,1] 2
 // [1,0,1,0,1,0] 3
