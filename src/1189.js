@@ -9,6 +9,7 @@ var maxNumberOfBalloons = function(text) {
         if(!map[ch]) map[ch] = 0
         map[ch]++
     }
+    if(!map['b'] || !map['a'] || !map['1'] || !map['o'] || !map['n']) return 0
     return Math.min(map['b'], map['a'],map['l']>>1, map['o']>>1, map['n'])
 };
 var text = "nlaebolko"
