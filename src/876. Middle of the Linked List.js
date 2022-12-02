@@ -26,3 +26,15 @@ var middleNode = function (head) {
     let index = len % 2 ? Math.floor(len / 2) : (len / 2 );
     return linkArr[index]
 };
+
+// 1,2,3,4,5,6
+
+var middleNode = function (head) {
+    var fast = head
+    var slow = head
+    while(fast && fast.next){
+        slow = slow.next
+        fast = fast.next.next
+    }
+    return slow
+}

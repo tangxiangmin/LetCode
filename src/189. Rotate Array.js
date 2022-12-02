@@ -19,5 +19,8 @@ var rotate = function(nums, k) {
 
     // nums = nums.concat(left);
 };
-// rotate([1, 2, 3, 4, 5, 6, 7], 3);
-rotate([1,2], 2);
+var nums = [1, 2, 3, 4, 5, 6, 7]
+rotate(nums, 3);
+
+console.log(nums)
+// rotate([1,2], 2);
