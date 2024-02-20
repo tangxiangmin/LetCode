@@ -38,3 +38,25 @@ var flatten = function (root) {
 
     return root
 };
+// 思路2：dfs,后序遍历
+var flatten = function (root) {
+    function dfs(node) {
+        if (!node) return null
+        var l = dfs(node.left)
+        var r = dfs(node.right)
+        node.left = null
+        if (l) {
+            node.right = l
+            // 找到链表的最后一个节点
+            var head = l
+            while (head.right) {
+                head = head.right
+            }
+            head.right = r
+        } else {
+            node.right = r
+        }
+        return node
+    }
+    return dfs(root)
+}

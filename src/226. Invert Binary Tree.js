@@ -6,8 +6,8 @@
 
 // 思路：递归~
 
-var invertTree = function(root) {
-    if(!root){
+var invertTree = function (root) {
+    if (!root) {
         return root;
     }
     let left = root.left;
@@ -18,3 +18,17 @@ var invertTree = function(root) {
 
     return root;
 };
+
+
+var invertTree = function (root) {
+    function dfs(node) {
+        if (!node) return null
+        var tmp = node.left
+        node.left = node.right
+        node.right = tmp
+        dfs(node.left)
+        dfs(node.right)
+    }
+    dfs(root)
+    return root
+}
