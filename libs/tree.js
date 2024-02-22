@@ -53,6 +53,7 @@ function flattenBinaryTree(root) {
 }
 
 module.exports = {
+    BinaryTreeNode,
     createBinaryTree,
     flattenBinaryTree
 }

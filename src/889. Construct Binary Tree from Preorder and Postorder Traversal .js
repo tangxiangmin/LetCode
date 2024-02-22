@@ -10,29 +10,29 @@
  * @param {number[]} post
  * @return {TreeNode}
  */
-// 前序: 根 -> 左子树 -> 右子树
-// 后续: 左子树 -> 右子树 -> 根
-
-var constructFromPrePost = function (pre, post) {
-    let cursor = 0
-    let head = new TreeNode(pre[cursor])
-    function dfs(root){
-        if (cursor > pre.length){
-            return
-        }
-
-        cursor++
-        let left = new TreeNode(pre[cursor]);
-        root.left = left;
-
-        cursor++
-        let right = new TreeNode(pre[cursor]);
-        root.right = right
-
-        dfs(root.left);
-        dfs(root.right);
+// 
+var constructFromPrePost = function (preorder, postorder) {
+    const postMap = {};
+    for (let i = 0; i < postorder.length; i++) {
+        postMap[postorder[i]] = i;
     }
 
-    dfs(head)
-    return head
+    const dfs = (preLeft, preRight, postLeft, postRight) => {
+        if (preLeft > preRight) {
+            return null;
+        }
+
+        let leftCount = 0;
+        if (preLeft < preRight) {
+            leftCount = postMap[preorder[preLeft + 1]] - postLeft + 1;
+        }
+
+        return new TreeNode(
+            preorder[preLeft],
+            dfs(preLeft + 1, preLeft + leftCount, postLeft, postLeft + leftCount - 1),
+            dfs(preLeft + leftCount + 1, preRight, postLeft + leftCount, postRight - 1)
+        );
+    };
+
+    return dfs(0, preorder.length - 1, 0, postorder.length - 1);
 };
