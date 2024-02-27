@@ -3,7 +3,7 @@
  * @param {number} target
  * @return {number[][]}
  */
-// 思路：使用递归
+// 思路：使用递归，终止条件是target 本身在candidates中存在，则直接返回1
 var combinationSum = function (candidates, target) {
     if (target <= 0) {
         return false
@@ -35,9 +35,37 @@ var combinationSum = function (candidates, target) {
 };
 
 // 思路2：上面的递归存在优化空间，
+var combinationSum = function (candidates, target) {
+    let ans = []
+    const cache = {}
+
+    const map = {}
+    function dfs(arr, n) {
+        if (n < 0) {
+            return
+        }
+        if (n === 0) {
+            const list = [...arr]
+            const key = list.sort((a, b) => a - b).join(',')
+            if (!map[key]) {
+                ans.push(list)
+                map[key] = true
+            }
+            return
+        }
+
+        for (const num of candidates) {
+            arr.push(num)
+            dfs(arr, n - num)
+            arr.pop(num)
+        }
+    }
+    dfs([], target)
+    return ans
+};
 
 var candidates = [2, 3, 6, 7], target = 7
-
+candidates = [2, 3, 5], target = 8
 var res = combinationSum(candidates, target)
 
-console.log(res)
+console.log(JSON.stringify(res))

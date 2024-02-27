@@ -28,7 +28,33 @@ var letterCombinations = function (digits) {
     }
     return ans
 };
+// 回溯
+var letterCombinations = function (digits) {
+    if (!digits) return []
+    const map = {
+        2: 'abc', 3: 'def',
+        4: 'ghi', 5: 'jkl', 6: 'mno',
+        7: 'pqrs', 8: 'tuv', 9: 'wxyz'
+    }
+    const ans = []
+    function backtrack(str, index) {
+        if (index === digits.length) {
+            ans.push(str)
+            return
+        }
+
+        const chars = map[digits[index]]
+        for (const ch of chars) {
+            backtrack(str + ch, index + 1)
+        }
+
+    }
+    backtrack('', 0)
+    return ans
+}
 
 var digits = '23'
+// digits = ""
+// digits = "22"
 var res = letterCombinations(digits)
 console.log(res)

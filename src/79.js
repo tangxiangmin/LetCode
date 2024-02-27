@@ -4,7 +4,7 @@
  * @return {boolean}
  */
 
-// 思路1：bfs, 貌似很难处理同一个单元格里面的元素只能用一次的问题
+// 思路1：回溯
 var exist = function (board, word) {
     var r = board.length
     if (!r) return false
@@ -12,45 +12,49 @@ var exist = function (board, word) {
     var count = 0
     var target = word[count++]
 
-    var visited = {} // todo 同一个单元格里面的元素只能用一次
-    var queue = []
-
+    var entryList = []
+    var visited = []
     // 找到首字母符合条件的坐标
     for (var i = 0; i < r; ++i) {
+        var row = Array(c).fill(0)
+        visited.push(row)
         for (var j = 0; j < c; ++j) {
             var ch = board[i][j]
             if (target === ch) {
-                add([i, j])
+                entryList.push([i, j])
             }
         }
     }
 
-    while (queue.length && count < word.length) {
-        target = word[count++]
-        var len = queue.length
-        for (var i = 0; i < len; ++i) {
-            var pos = queue.shift()
-            // 将下一轮需要遍历的字符坐标加入队列
-            var [r0, c0] = pos
-            if (c0 - 1 >= 0 && board[r0][c0 - 1] === target) {
-                add([r0, c0 - 1])
-            }
-            if (c0 + 1 < c && board[r0][c0 + 1] === target) {
-                add([r0, c0 + 1])
-            }
-            if (r0 - 1 >= 0 && board[r0 - 1][c0] === target) {
-                add([r0 - 1, c0])
-            }
-            if (r0 + 1 < r && board[r0 + 1][c0] === target) {
-                add([r0 + 1, c0])
-            }
-        }
-    }
-    return count === word.length && queue.length > 0
+    var flag = false
+    function backtrack(i, j, index) {
+        if (i < 0 || i >= r || j < 0 || j >= c || index >= word.length) return
 
-    function add(pos) {
-        queue.push(pos)
+        if (visited[i][j]) return
+
+        if (board[i][j] !== word[index]) return
+
+        if (index === word.length - 1) {
+            flag = true
+            return
+        }
+        visited[i][j] = true
+        !flag && backtrack(i, j + 1, index + 1)
+        !flag && backtrack(i, j - 1, index + 1)
+        !flag && backtrack(i + 1, j, index + 1)
+        !flag && backtrack(i - 1, j, index + 1)
+        visited[i][j] = false
     }
+
+    // 从首字母的位置开始，看看能否找到符合条件的
+    for (var entry of entryList) {
+        if (flag) {
+            return true
+        }
+        const [i, j] = entry
+        backtrack(i, j, 0)
+    }
+    return flag
 };
 
 var board = [
@@ -59,19 +63,11 @@ var board = [
     ['A', 'D', 'E', 'E']
 ]
 var word = 'ABCCED'
-// board = [["a"]]
-// word = "a"
 
-board = [["a", "a"]]
-word = "aa"
-board = [["a", "b"]]
-word = "aba"
-
-board = [
-    ["C", "A", "A"],
-    ["A", "A", "A"],
-    ["B", "C", "D"]
-]
-word = "AAB"
+// board = [
+//     ["A", "B", "C", "E"],
+//     ["S", "F", "C", "S"],
+//     ["A", "D", "E", "E"]]
+// word = "ABCB"
 var res = exist(board, word)
 console.log(res)
