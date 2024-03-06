@@ -4,46 +4,62 @@
  * @return {character[][]}
  */
 var updateBoard = function (board, click) {
-    let [x, y] = click
-    let row = board.length,
-        col = board[0].length
+    const row = board.length;
+    const col = board[0].length
 
-    function search(x, y){
+    function dfs(x, y) {
         if (x < 0 || x >= row || y < 0 || y >= col) {
             return
         }
+        if (board[x][y] !== 'E') return
+        const count = countM(x, y)
+        if (count !== 0) {
+            board[x][y] = `${count}`
+            return
+        }
+        board[x][y] = 'B'
 
-        if (board[x][y] === 'E'){
-            board[x][y] = 'B'
-        } else if (board[x][y] === 'M'){
-            setSquare(x, y)
-        }
+        dfs(x + 1, y)
+        dfs(x - 1, y)
+        dfs(x, y + 1)
+        dfs(x, y - 1)
+        dfs(x + 1, y + 1)
+        dfs(x - 1, y + 1)
+        dfs(x + 1, y - 1)
+        dfs(x - 1, y - 1)
     }
-    function setSquare(x, y){
-        if (x < 0 || x >= row || y < 0 || y >= col) {
-            return;
-        }
-        for(let i = -1; i < 2; ++i){
-            for(let j = -1; j < 2; ++j){
-                if(i !== 0 && j !== 0){
-                    let target = board[x + i][y+j]
-                    if(target == 'B'){
-                        board[x + i][y + j] = '1'
-                    } else if (parseInt(target)){
-                        board[x + i][y + j] = parseInt(target) + 1;
-                    }
+
+    // 统计某个单元格附近有多少颗雷，设置数量
+    function countM(x, y) {
+        let count = 0
+        for (let i = -1; i <= 1; ++i) {
+            for (let j = -1; j <= 1; ++j) {
+                if (isM(x + i, y + j)) {
+                    count++
                 }
             }
         }
+        return count
+    }
+    function isM(x, y) {
+        if (x < 0 || x >= row || y < 0 || y >= col) {
+            return false
+        }
+        return board[x][y] === 'M'
     }
 
+    const [x, y] = click
+
     // 踩到地雷
-    if(board[x][y] == 'M'){
+    if (board[x][y] == 'M') {
         board[x][y] = 'X'
         return board
     }
-    
+
+    dfs(x, y)
+    return board
 };
+
 
 var board = [
     ["E", "E", "E", "E", "E"],
@@ -53,4 +69,5 @@ var board = [
 ];
 
 var click = [3, 0]
-updateBoard(board, click);
+const ans = updateBoard(board, click);
+console.log(JSON.stringify(board))
