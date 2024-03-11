@@ -17,7 +17,13 @@ function createLinkListByArr(arr) {
 }
 function flattenLinkList(head) {
     const ans = []
+    const visited = new Map()
     while (head) {
+        if (visited.get(head)) {
+            throw new Error("链表有环")
+            break
+        }
+        visited.set(head, true)
         ans.push(head.val)
         head = head.next
     }
@@ -25,6 +31,7 @@ function flattenLinkList(head) {
 }
 
 module.exports = {
+    ListNode,
     createLinkListByArr,
     flattenLinkList
 }
