@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/tangxiangmin/LetCode#readme",
   "dependencies": {
-    "@datastructures-js/priority-queue": "^6.3.1"
+    "@datastructures-js/priority-queue": "^5.4.0"
   }
 }

@@ -33,14 +33,11 @@ var longestPalindrome = function (s) {
 // P(i, j)定义当S[i,j]为回文串时为true
 // 则：P(i,j)=(P(i+1,j−1) and Si == Sj)
 var longestPalindrome = function (s) {
-    var n = s.length;
+    const n = s.length
+    const dp = new Array(n).fill(0).map(() => new Array())
 
-    var dp = new Array(n);
-    for (var i = 0; i < n; ++i) {
-        dp[i] = [];
-    }
-
-    var res = "";
+    let res = "";
+    // 由于在计算dp[i][j]的时候需要用到dp[i+1][j-1]，因此从后向前遍历i，这样就可以提前知道dp[i+1]的状态
     for (var i = n - 1; i >= 0; i--) {
         for (var j = i; j < n; j++) {
             // j-i<2表示为0或1个字符串，
@@ -53,8 +50,10 @@ var longestPalindrome = function (s) {
     return res;
 };
 
+
+
 var s = "babad";
-s = "a";
+// s = "a";
 // s = "abcba"
 // s = "ccc"
 // s = "aba"
