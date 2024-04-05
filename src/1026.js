@@ -9,7 +9,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var maxAncestorDiff = function(root) {
+var maxAncestorDiff = function (root) {
     return dfs(root, []);
 
     function dfs(root, parents) {
@@ -31,3 +31,22 @@ var maxAncestorDiff = function(root) {
         return Math.max(...nums);
     }
 };
+
+var maxAncestorDiff = function (root) {
+    let ans = 0
+    function dfs(node, max, min) {
+        if (!node) return
+        const { left, val, right } = node
+        if (max < val) {
+            max = val
+        }
+        if (min > val) {
+            min = val
+        }
+        ans = Math.max(ans, max - val, val - min)
+        dfs(left, max, min)
+        dfs(right, max, min)
+    }
+    dfs(root, -Infinity, Infinity)
+    return ans
+}
