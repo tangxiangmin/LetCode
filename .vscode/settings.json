@@ -1,0 +1,16 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/src": true,
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/.git": true,
+        "**/src": true
+    },
+    "files.watcherExclude": {
+        "**/src": true
+    },
+    "telemetry.enableTelemetry": false
+}
