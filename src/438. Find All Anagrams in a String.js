@@ -4,9 +4,9 @@
 // 找到字符串中的颠倒子字符串，并返回其索引
 // abc的颠倒子字符串为 bac cba，即只有字符顺序不同的字符串
 // 思路： 主要是判断是否为颠倒子字符串，
-    // 1.起初将目标子字符串p与截取字符串sub进行排序，然后相等则为真，第34个测试用例超时了
-    // 2.使用一个字典来保存p的各字符出现次数，然后与sub进行比较即可，同样会超时
-    // 3.滑动窗户，表示是查看攻略
+// 1.起初将目标子字符串p与截取字符串sub进行排序，然后相等则为真，第34个测试用例超时了
+// 2.使用一个字典来保存p的各字符出现次数，然后与sub进行比较即可，同样会超时
+// 3.滑动窗户，表示是查看攻略
 /*var findAnagrams = function (s, p) {
     function isAnagrams(target, gogal) {
         var s1 = Array.prototype.sort.call(target.split("")).join("");
@@ -56,12 +56,12 @@
 //     // 同样会超时
 // };
 
-var findAnagrams = function(s, p) {
+var findAnagrams = function (s, p) {
     function getHash(str) {
         var hash = {},
             count = str.length;
-        for (var val of str){
-            if(!hash[val]){
+        for (var val of str) {
+            if (!hash[val]) {
                 hash[val] = 0;
             }
             hash[val]++;
@@ -73,21 +73,66 @@ var findAnagrams = function(s, p) {
 
     var left = 0, right = 0, count = p.length;
     var result = [];
-    while (right < s.length){
-        if (originHash[s[right++]]-- > 0){
+    while (right < s.length) {
+        if (originHash[s[right++]]-- > 0) {
             count--;
         }
-        if (count === 0){
+        if (count === 0) {
             result.push(left);
         }
-        if(right-left == p.length && originHash[s[left++]]++ >=0 ){
+        if (right - left == p.length && originHash[s[left++]]++ >= 0) {
             count++;
         }
     }
 
     return result;
 };
+
+var findAnagrams = function (s, p) {
+    const need = {}
+    let total = 0
+    for (const ch of p) {
+        if (!need[ch]) {
+            need[ch] = 0
+            total++
+        }
+        need[ch]++
+    }
+    let l = 0
+    let r = 0
+    let ans = []
+    let cnt = 0
+    const n = s.length
+    const map = {}
+    while (r < n) {
+        const ch = s[r]
+        r++
+        if (need[ch]) {
+            if (!map[ch]) map[ch] = 0
+            map[ch]++
+            if (map[ch] === need[ch]) {
+                cnt++
+            }
+        }
+        while (r - l >= p.length) {
+            if (cnt === total) {
+                ans.push(l)
+            }
+            const d = s[l]
+            l++
+            if (need[d]) {
+                if (map[d] === need[d]) {
+                    cnt--
+                }
+                map[d]--
+            }
+        }
+    }
+    return ans
+};
+
 var s = "cbaebabacd",
     p = "abc";
+    s = "abab", p = "ab"
 
 console.log(findAnagrams(s, p)); // [0, 6]

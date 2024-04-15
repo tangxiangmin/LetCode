@@ -37,3 +37,54 @@ var checkInclusion = function (s1, s2) {
         });
     }
 };
+
+// 滑动窗口
+var checkInclusion = function (s1, s2) {
+    const need = {}
+    let total = 0
+    for (const ch of s1) {
+        if (!need[ch]) {
+            need[ch] = 0
+            total++
+        }
+        need[ch]++
+    }
+
+    const map = {}
+    let l = 0
+    let r = 0
+    let cnt = 0
+    const n = s2.length
+    while (r < n) {
+        const ch = s2[r]
+        r++
+        if (need[ch]) {
+            if (!map[ch]) map[ch] = 0
+            map[ch]++
+
+            if (map[ch] === need[ch]) {
+                cnt++
+            }
+        }
+
+        while (r - l >= s1.length) {
+            if (cnt === total) {
+                return true
+            }
+            const d = s2[l]
+            if (map[d]) {
+                if (map[d] === need[d]) {
+                    cnt--
+                }
+                map[d]--
+            }
+            l++
+        }
+
+    }
+    return false
+}
+var s1 = "ab", s2 = "eidboaoo"
+s1 = "adc", s2 = "dcda"
+var ans = checkInclusion(s1, s2)
+console.log(ans)

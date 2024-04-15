@@ -4,7 +4,7 @@
  */
 
 
- var lengthOfLongestSubstring = function(s) {
+var lengthOfLongestSubstring = function (s) {
     var l = 0;
     var r = 0;
     var cur = "";
@@ -51,9 +51,37 @@ var lengthOfLongestSubstring = function (s) {
     return ans
 };
 
+var lengthOfLongestSubstring = function (s) {
+    const map = {}
+
+    let l = 0
+    let r = 0
+    const n = s.length
+    let ans = 0
+    while (r < n) {
+        const ch = s[r]
+        r++
+        if (!map[ch]) map[ch] = 0
+        map[ch]++
+
+        if (map[ch] > 1) {
+            while (s[l] !== ch) {
+                const d = s[l]
+                l++
+                map[d]--
+            }
+            map[ch]--
+            l++
+        }
+        ans = Math.max(ans, r - l)
+    }
+    return ans
+};
+
 var s = "abcabcbb"
 s = "bbbbb"
 s = "pwwkew"
-s = 'cdd'
+// s = 'cdd'
+s = "tmmzuxt"
 var ans = lengthOfLongestSubstring(s)
 console.log(ans)

@@ -22,7 +22,28 @@ var numSubarrayProductLessThanK = function (nums, k) {
     return ans
 };
 
+// 滑动窗口
+var numSubarrayProductLessThanK = function (nums, k) {
+    const n = nums.length
+    let l = 0
+    let r = 0
+    let val = 1
+    let ans = 0
+    while (r < n) {
+        const num = nums[r]
+        r++
+        val *= num
+        while (val >= k && l < r) {
+            val /= nums[l]
+            l++
+        }
+        ans += r - l
+    }
+    return ans
+}
+
 var nums = [10, 5, 2, 6], k = 100
+// nums = [1, 2, 3], k = 0
 var res = numSubarrayProductLessThanK(nums, k)
 console.log(res)
 
