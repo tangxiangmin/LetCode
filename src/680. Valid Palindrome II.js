@@ -30,6 +30,27 @@ var validPalindrome = function (s) {
     return true;
 };
 
+// 对比上面的代码，我已经变强了！！hahaha~
+var validPalindrome = function (s) {
+
+    let l = 0
+    let r = s.length - 1
+    while (l < r) {
+        if (s[l] !== s[r]) {
+            return dfs(l + 1, r) || dfs(l, r - 1)
+        }
+        l++
+        r--
+    }
+    return true
+
+    function dfs(l, r) {
+        if (l >= r) return true
+        if (s[l] !== s[r]) return false
+        return dfs(l + 1, r - 1)
+    }
+};
+
 var s = "eccer"
 var res = validPalindrome(s);
 console.log(res);

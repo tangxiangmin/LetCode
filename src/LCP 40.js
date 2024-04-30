@@ -3,7 +3,7 @@
  * @param {number} cnt
  * @return {number}
  */
-// 好像还要贪心。。。。
+// 最大的cnt个数
 var maxmiumScore = function (cards, cnt) {
     const n = cards.length
     cards.sort((a, b) => b - a)

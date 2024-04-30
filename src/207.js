@@ -35,6 +35,72 @@ var canFinish = function (numCourses, prerequisites) {
     return true
 };
 
+// 节点顺序相关的，可以考虑拓扑排序
+// 要看看是否存在入度为0的节点，有的话，从这些节点dfs
+
+// 可以使用BFS
+var canFinish = function (numCourses, prerequisites) {
+    const g = new Array(numCourses).fill(0).map(() => new Array())
+    const inDegrees = new Array(numCourses).fill(0)
+    // 要学a得先学b
+    for (const [a, b] of prerequisites) {
+        g[b].push(a)
+        inDegrees[a]++
+    }
+
+    const queue = []
+    for (let i = 0; i < numCourses; ++i) {
+        if (inDegrees[i] === 0) {
+            queue.push(i)
+        }
+    }
+    const ans = []
+
+    while (queue.length) {
+        const node = queue.shift()
+        ans.push(node)
+
+        for (const next of g[node]) {
+            inDegrees[next]--
+            if (inDegrees[next] === 0) {
+                queue.push(next)
+            }
+        }
+    }
+    return ans.length === numCourses
+}
+// 也可以使用dfs
+var canFinish = function (numCourses, prerequisites) {
+    const g = new Array(numCourses).fill(0).map(() => new Array())
+    const inDegrees = new Array(numCourses).fill(0)
+    // 要学a得先学b
+    for (const [a, b] of prerequisites) {
+        g[b].push(a)
+        inDegrees[a]++
+    }
+
+    const ans = []
+    const visited = []
+
+    for (let i = 0; i < numCourses; ++i) {
+        if (inDegrees[i] === 0) {
+            dfs(i)
+        }
+    }
+
+    return ans.length === numCourses
+    function dfs(i) {
+        visited[i] = 1
+        ans.push(i)
+        for (const next of g[i]) {
+            if (visited[i]) continue
+            inDegrees[next]--
+            if (inDegrees[next] === 0) {
+                dfs(next)
+            }
+        }
+    }
+}
 var numCourses = 2, prerequisites = [[1, 0]]
 numCourses = 2, prerequisites = [[1, 0], [0, 1]]
 numCourses = 3, prerequisites = [[1, 0], [1, 2], [0, 1]]

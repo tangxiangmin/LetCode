@@ -24,7 +24,7 @@ var findOrder = function (numCourses, prerequisites) {
             dfs(i);
         }
     }
-    if(invalid) return  []
+    if (invalid) return []
 
     return ans.reverse();
 
@@ -35,7 +35,7 @@ var findOrder = function (numCourses, prerequisites) {
             for (var node of depsB[c]) {
                 if (!visited[node]) {
                     dfs(node)
-                    if(invalid) return 
+                    if (invalid) return
                 } else if (visited[node] === 1) {
                     invalid = true
                     return;
@@ -46,6 +46,36 @@ var findOrder = function (numCourses, prerequisites) {
         ans.push(c);
     }
 };
+
+// 拓扑排序
+var findOrder = function (numCourses, prerequisites) {
+    const g = new Array(numCourses).fill(0).map(() => new Array())
+    const inDegrees = new Array(numCourses).fill(0)
+    for (const [a, b] of prerequisites) {
+        g[b].push(a)
+        inDegrees[a]++
+    }
+    const queue = []
+    for (let i = 0; i < numCourses; ++i) {
+        if (inDegrees[i] === 0) {
+            queue.push(i)
+        }
+    }
+    const ans = []
+    while (queue.length) {
+        const node = queue.shift()
+        ans.push(node)
+        for (const next of g[node]) {
+            inDegrees[next]--
+            if (inDegrees[next] === 0) {
+                queue.push(next)
+            }
+        }
+    }
+    if (ans.length === numCourses) return ans
+    return []
+};
+
 var numCourses = 4,
     prerequisites = [
         [1, 0],
@@ -53,6 +83,6 @@ var numCourses = 4,
         [3, 1],
         [3, 2],
     ];
-var numCourses =2, prerequisites = [[0,1],[1,0]]
+var numCourses = 2, prerequisites = [[0, 1], [1, 0]]
 var res = findOrder(numCourses, prerequisites);
 console.log(res);
