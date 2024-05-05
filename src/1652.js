@@ -39,9 +39,57 @@ var decrypt = function (code, k) {
     return ans;
 };
 
-// const code = [5, 7, 1, 4],k = 3;
-const code = [2, 4, 9, 3],
-    k = -2;
+// 局部前缀和
+var decrypt = function (code, k) {
+    const n = code.length
+    if (k === 0) return new Array(n).fill(0)
+    if (k > 0) {
+        return calc1()
+    }
+    k = -k
+    return calc2()
 
-const ans = decrypt(code, k);
+
+    function calc1() {
+        const ans = []
+        let sum = 0
+        for (let i = 0; i <= k; ++i) {
+            sum += code[i]
+        }
+        for (let i = 0; i < n; ++i) {
+            sum -= code[i]
+            ans[i] = sum
+            let idx = i + k + 1
+            if (idx >= n) {
+                idx = idx % n
+            }
+            sum += code[idx]
+        }
+        return ans
+    }
+
+    function calc2() {
+        const ans = []
+        let sum = 0
+        for (let i = n - k; i < n; ++i) {
+            sum += code[i]
+        }
+
+        for (let i = 0; i < n; ++i) {
+            ans[i] = sum
+            let idx = n - k + i
+            if (idx >= n) {
+                idx = idx % n
+            }
+            sum -= code[idx]
+            sum += code[i]
+        }
+        return ans
+    };
+}
+
+var code = [5, 7, 1, 4], k = 3;
+code = [2, 4, 9, 3], k = -2;
+
+var ans = decrypt(code, k);
 console.log(ans);

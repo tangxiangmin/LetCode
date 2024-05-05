@@ -25,8 +25,20 @@ var numSubarraysWithSum = function (A, S) {
     return ans
 };
 
-var A = [1, 0, 1, 0, 1], S = 2
-A = [0, 0, 0, 0, 0]
-S = 0
-var res = numSubarraysWithSum(A, S)
+var numSubarraysWithSum = function (nums, goal) {
+    let sum = 0;
+    const cnt = new Map();
+    let ans = 0;
+    for (const num of nums) {
+        cnt.set(sum, (cnt.get(sum) || 0) + 1)
+        sum += num
+        ans += cnt.get(sum - goal) || 0
+    }
+    return ans
+
+};
+
+var nums = [1, 0, 1, 0, 1], goal = 2
+// nums = [0, 0, 0, 0, 0], goal = 0
+var res = numSubarraysWithSum(nums, goal)
 console.log(res)
