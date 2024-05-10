@@ -144,7 +144,50 @@ var rob = function (nums) {
         return ans
     }
 }
+// 隔了一段时间来看上面的代码，没想到居然是我写的！！
+// 重新整理一下思路，环形只需要特殊考虑0和n-1元素的选择
+// 从第0或者第1间房子开始，同时限定一下最远的位置，即题目转换为求[0,n-2]和[1,n-1]这两个数组的打家劫舍
+var rob = function (nums) {
+    const n = nums.length
+    if (n < 2) {
+        return nums[0]
+    }
+    const cache = {}
+    return Math.max(dfs(0, n - 2), dfs(1, n - 1))
+    function dfs(i, max) {
+        const key = `${i},${max}`
+        if (cache[key] !== undefined) return cache[key]
+        if (i > max) return 0
+        return cache[key] = Math.max(dfs(i + 1, max), nums[i] + dfs(i + 2, max))
+    }
+};
+// 优化逻辑
+var rob = function (nums) {
+    const n = nums.length
+    if (n < 2) {
+        return nums[0]
+    }
 
-var res = rob(nums)
-console.log(res)
+    return Math.max(calc(nums.slice(0, n - 1)), calc(nums.slice(1)))
+
+    function calc(nums) {
+        const n = nums.length
+        const dp = []
+        dp[0] = 0
+        dp[1] = nums[0]
+
+        for (let k = 2; k <= n; k++) {
+            dp[k] = Math.max(dp[k - 1], nums[k - 1] + dp[k - 2])
+        }
+        return dp[n];
+    }
+};
+
+
+nums = [2, 3, 2]
+// nums = [1, 2, 3, 1]
+nums = [1, 2, 3]
+nums = [1,1]
+var ans = rob(nums)
+console.log(ans)
 

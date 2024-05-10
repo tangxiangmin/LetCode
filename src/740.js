@@ -52,21 +52,20 @@ var deleteAndEarn = function (nums) {
 };
 
 // 将x+1和x-1看做是索引值，这个题就跟打家劫舍一样了：不能选择相邻的元素
+// dp[i]作为选择了nums[i]的最大
 var deleteAndEarn = function (nums) {
     let maxVal = Math.max(...nums)
+    // 映射成房间，相同的数字分数会累加
     const sum = new Array(maxVal + 1).fill(0);
     for (const val of nums) {
         sum[val] += val;
     }
-    return rob(sum);
-    function rob(nums) {
-        const size = nums.length;
-        let dp = new Array(size + 2).fill(0)
-        for (let i = 0; i < size; i++) {
-            dp[i + 2] = Math.max(dp[i + 1], dp[i] + nums[i])
-        }
-        return dp[size + 1];
+    const size = sum.length;
+    let dp = new Array(size + 2).fill(0)
+    for (let i = 0; i < size; i++) {
+        dp[i + 2] = Math.max(dp[i + 1], dp[i] + sum[i])
     }
+    return dp[size + 1]
 };
 
 

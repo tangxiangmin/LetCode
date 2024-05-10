@@ -17,5 +17,18 @@ var maxSubArray = function (nums) {
     return max;
 };
 
+// 对于第i个数字，定义dp[i]为以nums[i]结尾的最大和，他可以选择拼接前面的元素，也可以选择不拼接
+// dp[i] = max(dp[i-1] + nums[i], nums[i]) => max(dp[i-1],0) + nums[i]
+var maxSubArray = function (nums) {
+    const dp = []
+    const n = nums.length
+    let ans = -Infinity
+    for (let i = 0; i < n; ++i) {
+        dp[i] = nums[i] + Math.max(i === 0 ? 0 : dp[i - 1], 0)
+        ans = Math.max(ans, dp[i])
+    }
+    return ans
+};
+
 var test = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 console.log(maxSubArray(test));
