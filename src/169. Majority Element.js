@@ -5,23 +5,39 @@
 // 后面的题都没有给测试案例，自己也懒得写了，直接丢上去运行了
 // 貌似不能用for of循环
 
-var majorityElement = function(nums) {
+var majorityElement = function (nums) {
     var tmp = {},
         max = 0,
         res = nums[0];
-    for (var i = 0, len = nums.length; i < len; ++i){
+    for (var i = 0, len = nums.length; i < len; ++i) {
         var val = nums[i];
-        tmp[val]? tmp[val]++:tmp[val]=1;
+        tmp[val] ? tmp[val]++ : tmp[val] = 1;
     }
-    for (var key in tmp){
+    for (var key in tmp) {
         var val = tmp[key];
-        if (max < val){
+        if (max < val) {
             max = val;
             res = key;
         }
     }
     return res - 0;
 };
-var test = [3,3,4];
+// 摩尔投票
+var majorityElement = function (nums) {
+    let votes = 0
+    let x
+    for (const num of nums) {
+        if (votes === 0) {
+            x = num
+        }
+        if (num === x) {
+            votes++
+        } else {
+            votes--
+        }
+    }
+    return x
+}
+var test = [3, 3, 4];
 console.log(majorityElement(test));
 
