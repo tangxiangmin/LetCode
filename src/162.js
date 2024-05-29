@@ -4,7 +4,6 @@
  */
 
 // 思路，求峰值
-
 // 暴力解法，O(n), 不满足O(logN)时间复杂度的要求
 var findPeakElement = function (nums) {
     var len = nums.length
@@ -41,5 +40,8 @@ var findPeakElement = function (nums) {
     return l
 }
 
-var res = findPeakElement([1, 2, 3])
-console.log(res)
+var nums = [1, 2, 3, 1]
+nums = [1, 2, 1, 3, 5, 6, 4]
+nums = [1]
+var ans = findPeakElement(nums)
+console.log(ans)
