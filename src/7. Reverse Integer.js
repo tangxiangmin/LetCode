@@ -28,6 +28,7 @@ var reverse = function(x) {
         }
         x = (x - tail)/10; 
     }
+
     return res
 }
 

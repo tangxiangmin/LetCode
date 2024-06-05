@@ -1,38 +1,29 @@
 /**
- * @param {number[]} coins
- * @param {number} target
+ * @param {number[]} nums
  * @return {number}
  */
-// 贪心加模拟
-// 从0开始依次构建[0,s]的范围
-var minimumAddedCoins = function (coins, target) {
-    coins.sort((a, b) => a - b)
-    let end = 0
-    let i = 0
+// 田忌赛马
+// 对于每一个数字而言，使用刚好比他大一位的那个数字
+var maximizeGreatness = function (nums) {
+    nums.sort((a, b) => a - b)
+    const n = nums.length
+    let l = 0
+    let r = 1
     let ans = 0
-    while (end < target) {
-        const cur = coins[i]
-        if (cur - 1 > end) {
-            // 将end+1数字加入
-            ans++
-            end += end + 1
-            continue
+    while (r < n) {
+        while (r < n && nums[r] === nums[l]) {
+            r++
         }
-        end += cur
-        i++
-        // coins用完了还不够，将end+1加入到列表中
-        if (i === coins.length && end < target) {
-            ans++
-            coins.push(end + 1)
-        }
+        if (r === n) break
+        ans++
+        l++
+        r++
     }
     return ans
-}
+};
 
-var coins = [1, 4, 10], target = 19
-coins = [1, 4, 10, 5, 7, 19], target = 19
-// coins = [1, 1, 1], target = 20
-// coins = [100000], target = 100000
-
-var ans = minimumAddedCoins(coins, target)
+var nums = [1, 3, 5, 2, 1, 3, 1]
+nums = [1, 2, 3, 4]
+nums = [26, 76, 24, 96, 82, 97, 97, 72]
+var ans = maximizeGreatness(nums)
 console.log(ans)

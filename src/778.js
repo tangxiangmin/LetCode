@@ -61,6 +61,7 @@ var swimInWater = function (grid) {
 
     }
 }
+
 // 答案在[0,max(grid)]中间，因此可以使用二分，找到左边界
 var swimInWater = function (grid) {
     let max = 0
@@ -96,9 +97,7 @@ var swimInWater = function (grid) {
         if (visited[key]) return false
         visited[key] = 1
         return move(i, j + 1, t, visited) || move(i, j - 1, t, visited) || move(i + 1, j, t, visited) || move(i - 1, j, t, visited)
-
     }
-
 }
 var grid = [[0, 1, 2, 3, 4], [24, 23, 22, 21, 5], [12, 13, 14, 15, 16], [11, 17, 18, 19, 20], [10, 9, 8, 7, 6]]
 // grid = [[0, 2], [1, 3]]

@@ -10,7 +10,7 @@ var lengthOfLongestSubstring = function (s) {
     var cur = "";
     var max = cur;
     while (r < s.length) {
-        var c = s[r];
+        var c = s[r]
         r++;
         var idx = cur.indexOf(c);
         if (idx === -1) {
