@@ -2,7 +2,7 @@
  * @param {character[][]} board
  * @return {number}
  */
-var countBattleships = function(board) {
+var countBattleships = function (board) {
     let row = board.length,
         col = board[0].length;
 
@@ -24,6 +24,7 @@ var countBattleships = function(board) {
     }
     return res;
 };
+
 let input = ["X..X", "...X", "...."];
 
 countBattleships(input);

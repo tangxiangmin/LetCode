@@ -24,3 +24,26 @@ var numRescueBoats = function (people, limit) {
     }
     return ans
 };
+
+var numRescueBoats = function (people, limit) {
+    people.sort((a, b) => a - b)
+    let r = people.length - 1
+    let l = 0
+    let ans = 0
+
+    while (l <= r) {
+        const sum = people[l] + people[r]
+        if (sum > limit) {
+            r--
+        } else if (sum <= limit) {
+            l++
+            r--
+        }
+        ans++
+
+    }
+    return ans
+};
+var people = [1, 2], limit = 3
+var ans = numRescueBoats(people, limit)
+console.log(ans)
